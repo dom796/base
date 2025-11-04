@@ -1,11 +1,13 @@
+import * as React from 'react';
 import { lazy, Suspense } from 'react';
+
 import viteLogo from '/vite.svg';
 import reactLogo from '@/assets/react.svg';
 import './App.css';
 
 const StaticContent = lazy(() => import('./components/StaticContent.tsx'));
 
-function App() {
+export const App: React.FC = () => {
     return (
         <Suspense fallback={<div>Loading...</div>}>
             <div className="app-container">
@@ -29,6 +31,6 @@ function App() {
             </div>
         </Suspense>
     );
-}
+};
 
 export default App;

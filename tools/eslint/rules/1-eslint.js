@@ -11,7 +11,7 @@ export default {
      * Все числа должны быть указаны в виде констант.
      * https://eslint.org/docs/rules/no-magic-numbers
      */
-    'no-magic-numbers': 'off',
+    'no-magic-numbers': ['error', { ignore: [-1, 0, 1, 2, 6, 500], ignoreArrayIndexes: true }],
 
     /*
      * Обязательные фигурные скобки в управляющих конструкциях (if, else, for, while, do).
@@ -201,17 +201,14 @@ export default {
      * Необходимо для выражений типа 'i++'.
      * https://eslint.org/docs/rules/no-plusplus
      */
-    'no-plusplus': 'off',
+    'no-debugger': 'warn',
 
     /*
      * Разрешается использовать continue (к примеру, в циклах).
      * https://eslint.org/docs/rules/no-continue
      */
-    'no-continue': 'off',
 
     'no-return-await': 'off',
 
     'implicit-arrow-linebreak': 'off',
-
-    'space-infix-ops': ['error', { int32Hint: false }],
 };

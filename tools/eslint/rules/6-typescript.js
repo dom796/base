@@ -1,28 +1,19 @@
 export default {
-    /*
-     * Отступы = 4 пробела.
-     * Дублирующее правило 'indent' из eslint, создано для перестраховки.
-     * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/indent.md
-     */
     '@typescript-eslint/indent': [2, 6],
 
-    /*
-     * У функций бывают очень длинные возвращаемые типы, поэтому это не всегда целесообразно для соблюдения чистоты кода.
-     * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-function-return-type.md
-     */
-    '@typescript-eslint/explicit-function-return-type': 0,
+    '@typescript-eslint/explicit-function-return-type': [
+        'error',
+        {
+            allowExpressions: true,
+            allowTypedFunctionExpressions: true,
+            allowHigherOrderFunctions: true,
+            allowDirectConstAssertionInArrowFunctions: true,
+            allowConciseArrowFunctionExpressionsStartingWithVoid: true,
+        },
+    ],
 
-    /*
-     * Правила разделителей в интерфейсах (точка с запятой).
-     * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/member-delimiter-style.md
-     */
     '@typescript-eslint/member-delimiter-style': 2,
 
-    /*
-     * Запрещаются неиспользованные переменные.
-     * Кроме переменных в типизации и спред-операторов.
-     * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-vars.md
-     */
     '@typescript-eslint/no-unused-vars': [
         2,
         {
@@ -32,36 +23,41 @@ export default {
         },
     ],
 
-    /*
-     * Типизировать граничные функции необязательно.
-     * Сейчас достаточно использования '@typescript-eslint/explicit-function-return-type'.
-     * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-module-boundary-types.md
-     */
-    '@typescript-eslint/explicit-module-boundary-types': 0,
+    '@typescript-eslint/explicit-module-boundary-types': [
+        'warn',
+        {
+            allowArgumentsExplicitlyTypedAsAny: true,
+            allowDirectConstAssertionInArrowFunctions: true,
+            allowedNames: [],
+            allowHigherOrderFunctions: true,
+            allowTypedFunctionExpressions: true,
+        },
+    ],
 
-    /*
-     * Модификаторы доступа необязательны.
-     * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/explicit-member-accessibility.md
-     */
-    '@typescript-eslint/explicit-member-accessibility': 0,
+    '@typescript-eslint/explicit-member-accessibility': [
+        'error',
+        {
+            accessibility: 'explicit',
+            overrides: {
+                accessors: 'explicit',
+                constructors: 'no-public',
+                methods: 'explicit',
+                properties: 'explicit',
+                parameterProperties: 'explicit',
+            },
+        },
+    ],
 
-    /*
-     * Запрещается использовать сущности до их объявления.
-     * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-use-before-define.md
-     */
+    '@typescript-eslint/no-explicit-any': ['error', { ignoreRestArgs: true }],
+
+    '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
+
+    '@typescript-eslint/no-unused-expressions': ['error', { allowShortCircuit: true, allowTernary: true }],
+
     '@typescript-eslint/no-use-before-define': 1,
 
-    /*
-     * Разрешаются к использованию всевозможные типы.
-     * В будущем тут можно явно ограничивать использование типов.
-     * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/ban-types.md
-     */
     '@typescript-eslint/ban-types': 0,
 
-    /*
-     * Разрешается импорт через require.
-     * https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-var-requires.md
-     */
     '@typescript-eslint/no-var-requires': 0,
     '@typescript-eslint/no-non-null-assertion': 'off',
 };
