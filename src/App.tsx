@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { lazy, Suspense } from 'react';
+import { lazy, memo, Suspense } from 'react';
 
 import viteLogo from '/vite.svg';
 import reactLogo from '@/assets/react.svg';
@@ -7,7 +6,7 @@ import './App.css';
 
 const StaticContent = lazy(() => import('./components/StaticContent.tsx'));
 
-export const App: React.FC = () => {
+export const App = memo(() => {
     return (
         <Suspense fallback={<div>Loading...</div>}>
             <div className="app-container">
@@ -31,6 +30,8 @@ export const App: React.FC = () => {
             </div>
         </Suspense>
     );
-};
+});
+
+App.displayName = 'App';
 
 export default App;
