@@ -1,4 +1,4 @@
-import { lazy, memo, Suspense } from 'react';
+import React, { lazy, memo, Suspense } from 'react';
 
 import viteLogo from '/vite.svg';
 import reactLogo from '@/assets/react.svg';
