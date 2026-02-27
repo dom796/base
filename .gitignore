@@ -23,6 +23,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-.codebuddy
-.windsurf
-.proxyai
+.codebuddy/*
+.windsurf/*
+.proxyai/*
